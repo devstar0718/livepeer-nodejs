@@ -43,8 +43,6 @@ const livepeerObject = new Livepeer(api_key);
 
 The **stream** is the core building block of the livepeer.com platform. A livepeer.com stream is a unique object with configuration data and metadata about all live stream sessions associated with it.
 
-#### Stream Object
-
 | Property  | Description |
 | ------------- | ------------- |
 | name  | Additional identifier for the asset. Often set to a human readable string. This identifier does not need to be unique  |
@@ -55,7 +53,7 @@ The **stream** is the core building block of the livepeer.com platform. A livepe
 | playbackId  | Unique identifier used to form the playback URL. ex: Playback URL - https://cdn.livepeer.com/hls/{playbackId}/index.m3u8   |
 | ...  | Other object keys.  |
 
-#### Create a stream
+#### - Create a stream
 
 Create a stream with name and profiles.
 
@@ -90,7 +88,7 @@ const stream = await livepeerObject.Stream.create(
 );
 ```
 
-#### Retrieve all streams
+#### - Retrieve all streams
 
 Get all streams with the same user (owner of the api_key)
 
@@ -103,13 +101,13 @@ const streams = await livepeerObject.Stream.getAll(streamOnly = 0, isActive = fa
 | isActive | If true, get only active stream |
 | record | If true, get only recorded on stream |
 
-#### Retrieve a stream using id
+#### - Retrieve a stream using id
 
 ```javascript
 const stream = await livepeerObject.Stream.get(id);
 ```
 
-#### Turn on/off recording
+#### - Turn on/off recording
 
 Turn on/off recording for streams, but not for session or historic stream object (representing a single live stream)
 
@@ -120,3 +118,60 @@ const result = await stream.setRecord(0/1);
 ### Session
 
 The **session** is a single live streaming session. It is an especially important Livepeer.com API object if need to reference recorded live stream sessions.
+
+| Property  | Description |
+| ------------- | ------------- |
+| id | Unique identifier for the session. |
+| sourceSegmentsDuration | Duration in seconds of session source processed. |
+| record | True means the session is being recorded or was recorded. False means session is not being recorded or was not recorded. |
+| parentId | Points to a parent stream object. The session’s parentId is the same string as its parent stream’s id. |
+| recordingStatus | Appears only if record is true. It is either ready when the recorded live stream is available for playback or waiting while the livestream is still active or just recently completed. |
+| recordingUrl | Appears only if record is true when recordingStatus changes to ready. It’s value is the .m3u8 URL to stream the recorded session |
+| ... | Other object keys |
+
+#### - Retrieve a list of sessions
+
+Retrieve a list of sessions with the same User (owner of the api_key).
+
+```javascript
+const sessions = await livepeerObject.Session.getAll();
+```
+
+Retrieve a list of sessions within a stream.
+
+```javascript
+const sessions = await livepeerObject.Session.getAll(streamId, record);
+```
+
+| Parameter  | Description |
+| ------------- | ------------- |
+| streamId | ID of stream |
+| record | 1 to get recorded sessions, otherwise 0 |
+
+#### - Retrieve a session from session id
+
+```javascript
+const session = await livepeerObject.Session.get(id);
+```
+
+### Ingest
+
+Get references to stream ingest data centers on the Livepeer network.
+
+| Property  | Description |
+| ------------- | ------------- |
+| base | Base URL for the playback URL |
+| ingest | Base URL used to configure the broadcast software. Pair it with a stream object streamKey |
+| playback | Base URL for HLS playback. Append a stream object playbackId to create the full playback URL |
+
+#### - Get closed ingest
+
+```javascript
+const ingest = await livepeerObject.Ingest.getClosest()
+```
+
+#### - Get all ingests
+
+```javascript
+const ingests = await livepeerObject.Ingest.getAll()
+```

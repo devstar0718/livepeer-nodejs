@@ -1,0 +1,19 @@
+{
+  "name": "livepeer-node",
+  "version": "1.0.0",
+  "description": "Livepeer API wrapper for Node projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devstar0718/livepeer-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devstar0718/livepeer-node/issues"
+  },
+  "homepage": "https://github.com/devstar0718/livepeer-node#readme"
+}

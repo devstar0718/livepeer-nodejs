@@ -49,10 +49,19 @@ async function testGet(){
 
 async function testRecord(){
     const stream = await livepeerObject.Stream.get('29cf8929-665c-4280-a080-d00e483a9473');
-    stream.record(false);
+    stream.setRecord(false);
+}
+
+async function testGetSession(){
+    const stream = await livepeerObject.Stream.get('29cf8929-665c-4280-a080-d00e483a9473');
+    const sessions = await stream.getSessions();
+    for(const session of sessions){
+        console.log(session.id);
+    }
 }
 
 // testCreate();
 // testGet();
 // testGetAll();
-testRecord();
+// testRecord();
+testGetSession();

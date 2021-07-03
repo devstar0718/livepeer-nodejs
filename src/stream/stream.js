@@ -4,7 +4,7 @@
  */
 
 const Base = require('../base');
-const LivepeerError = require('../error')
+const Session = require('../session/session');
 
 const PATH = '/stream';
 
@@ -66,7 +66,7 @@ class Stream extends Base {
     async get(id){
         if (!id) {
             return Promise.reject(
-                new Error('ID of stream is required to get the stream')
+                new Error('ID of stream is required to get a stream')
             );
         }
         const response = await this.http.get(PATH + '/' + id);
@@ -74,16 +74,35 @@ class Stream extends Base {
         return new Stream(this.parent, response.data);
     }
 
-    async record(isOn){
+    async setRecord(isOn){
         if(!this.id){
             return Promise.reject(
-                new Error('Instance does not exist')
+                new Error('Stream Instance does not exist')
             );
         }
         const response = await this.http.patch(PATH + '/' + this.id + '/record', {
             "record": isOn
         });
         console.log('Change Record: ' + response.statusText);
+    }
+
+    async getSessions(record = false){
+        if(!this.id){
+            return Promise.reject(
+                new Error('Stream Instance does not exist')
+            );
+        }
+        let filter = '';
+        if(record){
+            filter = '?record=1';
+        }
+        const response = await this.http.get(PATH + '/' + this.id + '/sessions' + filter);
+        console.log('Get Sessions of Stream: ' + response.statusText);
+        let sessions =  [];
+        for(const element of response.data){
+            sessions.push(new Session(this.parent, element));
+        }
+        return sessions;
     }
 }
 

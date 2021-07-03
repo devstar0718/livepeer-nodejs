@@ -1,6 +1,6 @@
 const Livepeer = require('../src/livepeer');
 
-console.log("Testing Stream...");
+console.log("**********     Testing Stream...    ***************");
 
 const livepeerObject = new Livepeer('4ea227ff-e35e-4f12-8945-a4ae7973fa3f');
 
@@ -32,19 +32,19 @@ async function testCreate(){
                 },
             ]
         });
-    console.log(stream.id);
+    // console.log(stream.id);
 }
 
 async function testGetAll(){
     const streams = await livepeerObject.Stream.getAll(1 );
     for(const stream of streams){
-        console.log(stream.id);
+        // console.log(stream.id);
     }
 }
 
 async function testGet(){
     const stream = await livepeerObject.Stream.get('29cf8929-665c-4280-a080-d00e483a9473');
-    console.log(stream.id);
+    // console.log(stream.id);
 }
 
 async function testRecord(){
@@ -56,12 +56,12 @@ async function testGetSession(){
     const stream = await livepeerObject.Stream.get('29cf8929-665c-4280-a080-d00e483a9473');
     const sessions = await stream.getSessions();
     for(const session of sessions){
-        console.log(session.id);
+        // console.log(session.id);
     }
 }
 
-// testCreate();
-// testGet();
-// testGetAll();
-// testRecord();
+testCreate();
+testGet();
+testGetAll();
+testRecord();
 testGetSession();

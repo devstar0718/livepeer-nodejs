@@ -4,14 +4,13 @@
   "description": "Livepeer API wrapper for Node projects",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "node test/stream.js && node test/session.js && node test/ingest.js "
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/devstar0718/livepeer-node.git"
   },
-  "author": "",
+  "author": "Alex Wang | Livepeer",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/devstar0718/livepeer-node/issues"

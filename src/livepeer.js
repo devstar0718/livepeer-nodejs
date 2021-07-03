@@ -15,7 +15,9 @@ const Ingest = require('./ingest/ingest');
  * @type {Stream}
  * @property {Stream} Livepeer.Stream provides access to the Livepeer Stream API
  * @type {Session}
- * @property {Session} Livepeer.Data provides access to the Livepeer Data API
+ * @property {Session} Livepeer.Session provides access to the Livepeer Data API
+ * @type {Ingest}
+ * @property {Ingest} Livepeer.Ingest provides access to the Livepeer Ingest API
  * @example
  *
  */

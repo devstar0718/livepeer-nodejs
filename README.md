@@ -18,13 +18,13 @@ See the [Livepeer docs](https://livepeer.org/docs)
 ## Installation
 
 ```
-npm install @livepeer/livepeer-node --save
+npm install livepeer-node --save
 ```
 
 or
 
 ```
-yarn add @livepeer/livepeer-node
+yarn add livepeer-node
 ```
 
 ## Usage
@@ -32,10 +32,10 @@ yarn add @livepeer/livepeer-node
 To start, you will need to get API key for Livepeer. For more information on where to get an API key, visit https://livepeer.com/app/user/keys 
 
 
-Require the `@livepeer/livepeer-node` npm module and create a Livepeer instance. Your Livepeer instance will have some properties such as Stream and Session that allow you to access the Stream and Session APIs.
+Require the `livepeer-node` npm module and create a Livepeer instance. Your Livepeer instance will have some properties such as Stream and Session that allow you to access the Stream and Session APIs.
 
 ```javascript
-const Livepeer = require(‘@livepeer/livepeer-node’);
+const Livepeer = require('livepeer-node');
 const livepeerObject = new Livepeer(api_key);
 ```
 
@@ -60,28 +60,28 @@ Create a stream with name and profiles.
 ```javascript
 const stream = await livepeerObject.Stream.create(
     {
-    “name”: “test_stream”, 
-    “profiles”: [
+    "name": "test_stream", 
+    "profiles": [
         {
-            “name”: “720p”,
-            “bitrate”: 2000000,
-            “fps”: 30,
-            “width”: 1280,
-            “height”: 720
+            "name": "720p",
+            "bitrate": 2000000,
+            "fps": 30,
+            "width": 1280,
+            "height": 720
         },
         {
-            “name”: “480p”,
-            “bitrate”: 1000000,
-            “fps”: 30,
-            “width”: 854
-            “height”: 480
+            "name": "480p",
+            "bitrate": 1000000,
+            "fps": 30,
+            "width": 854
+            "height": 480
         },
         {
-            “name”: “36p”,
-            “bitrate”: 500000,
-            “fps”: 30,
-            “width”: 640,
-            “height”: 360
+            "name": "36p",
+            "bitrate": 500000,
+            "fps": 30,
+            "width": 640,
+            "height": 360
         },
     ]
     }

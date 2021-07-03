@@ -73,7 +73,7 @@ const stream = await livepeerObject.Stream.create(
             "name": "480p",
             "bitrate": 1000000,
             "fps": 30,
-            "width": 854
+            "width": 854,
             "height": 480
         },
         {

@@ -165,7 +165,7 @@ Get references to stream ingest data centers on the Livepeer network.
 | ingest | Base URL used to configure the broadcast software. Pair it with a stream object streamKey |
 | playback | Base URL for HLS playback. Append a stream object playbackId to create the full playback URL |
 
-#### - Get closed ingest
+#### - Get closet ingest
 
 ```javascript
 const ingest = await livepeerObject.Ingest.getClosest()

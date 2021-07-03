@@ -2,7 +2,7 @@
   "name": "livepeer-node",
   "version": "1.0.0",
   "description": "Livepeer API wrapper for Node projects",
-  "main": "index.js",
+  "main": "src/livepeer.js",
   "scripts": {
     "test": "node test/stream.js && node test/session.js && node test/ingest.js "
   },
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/devstar0718/livepeer-node/issues"
   },
-  "homepage": "https://github.com/devstar0718/livepeer-node#readme",
+  "homepage": "https://github.com/devstar0718/livepeer-node",
   "dependencies": {
     "axios": "^0.21.1"
   }

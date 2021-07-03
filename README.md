@@ -112,6 +112,7 @@ const stream = await livepeerObject.Stream.get(id);
 Turn on/off recording for streams, but not for session or historic stream object (representing a single live stream)
 
 ```javascript
+const stream = await livepeerObject.Stream.get(id);
 const result = await stream.setRecord(true / false);
 ```
 
@@ -120,6 +121,7 @@ const result = await stream.setRecord(true / false);
 Retrieve a list of sessions of a stream.
 
 ```javascript
+const stream = await livepeerObject.Stream.get(id);
 const sessions = await stream.getSessions(true / false);
 ```
 

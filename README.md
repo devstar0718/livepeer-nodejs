@@ -36,7 +36,7 @@ Require the `livepeer-node` npm module and create a Livepeer instance. Your Live
 
 ```javascript
 const Livepeer = require('livepeer-node');
-const livepeerObject = new Livepeer(api_key);
+const livepeerObject = new Livepeer({api_key});
 ```
 
 ### Stream

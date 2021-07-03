@@ -33,13 +33,8 @@ class Base extends EventEmitter {
             headers: {
                 'User-Agent': `Livepeer Node | ${pkg.version}`,
                 'Content-Type': 'application/json',
-                Accept: 'application/json',
-            },
-            mode: 'cors',
-            withCredentials: false,
-            auth: {
-                username: this.apiKey,
-            },
+                'Authorization': `Bearer ${this.apiKey}`
+            }
         });
     }
 

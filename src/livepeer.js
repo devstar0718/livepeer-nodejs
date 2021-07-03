@@ -1,6 +1,6 @@
 /*!
- * Mux
- * Copyright(c) 2018 Mux Inc.
+ * Livepeer
+ * Copyright(c) 2021 Livepeer Inc.
  */
 
 const Base = require('./base');
@@ -44,4 +44,4 @@ class Livepeer extends Base {
 
 Livepeer.default = Livepeer;
 
-module.exports = Mux;
+module.exports = Livepeer;

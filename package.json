@@ -4,7 +4,8 @@
   "description": "Livepeer API wrapper for Node projects",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/devstar0718/livepeer-node/issues"
   },
-  "homepage": "https://github.com/devstar0718/livepeer-node#readme"
+  "homepage": "https://github.com/devstar0718/livepeer-node#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }

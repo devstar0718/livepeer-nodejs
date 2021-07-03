@@ -73,6 +73,18 @@ class Stream extends Base {
         console.log('Get a Stream: ' + response.statusText);
         return new Stream(this.parent, response.data);
     }
+
+    async record(isOn){
+        if(!this.id){
+            return Promise.reject(
+                new Error('Instance does not exist')
+            );
+        }
+        const response = await this.http.patch(PATH + '/' + this.id + '/record', {
+            "record": isOn
+        });
+        console.log('Change Record: ' + response.statusText);
+    }
 }
 
 module.exports = Stream;

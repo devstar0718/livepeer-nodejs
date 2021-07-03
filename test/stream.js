@@ -47,6 +47,12 @@ async function testGet(){
     console.log(stream.id);
 }
 
-testCreate();
-testGet();
-testGetAll();
+async function testRecord(){
+    const stream = await livepeerObject.Stream.get('29cf8929-665c-4280-a080-d00e483a9473');
+    stream.record(false);
+}
+
+// testCreate();
+// testGet();
+// testGetAll();
+testRecord();

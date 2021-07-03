@@ -1,9 +1,10 @@
 /*!
  * Livepeer Stream
- * Copyright(c) 2021 Mux Inc.
+ * Copyright(c) 2021 Livepeer Inc.
  */
 
 const Base = require('../base');
+const LivepeerError = require('../error')
 
 const PATH = '/stream';
 
@@ -32,27 +33,45 @@ class Stream extends Base {
     async create(params) {
         if (!params) {
             return Promise.reject(
-                new Error('Params are required for creating a stream')
+                new Error('Params are required to create a stream')
             );
         }
         const response = await this.http.post(PATH, params);
         console.log('Create a Stream: ' + response.statusText);
-        switch (Math.floor(response.status / 100)) {
-            case 2:
-                return new Stream(this.parent, response.data);
-            case 4:
-                return Promise.reject(
-                    new Error('Client Error, problem with the information provided')
-                );
-            case 5:
-                return Promise.reject(
-                    new Error('Internal Server Error, problem with Livepeer servers')
-                );
-            default:
-                return Promise.reject(
-                    new Error('Unknown Error')
-                );
+        return new Stream(this.parent, response.data);
+    }
+
+    async getAll(streamOnly = 0, isActive = false, record = false){
+        let filter = ``;
+        if(streamOnly === 1){
+            filter += '/?streamsonly=1';
+            if(isActive){
+                if(record){
+                    filter += '&filters=[{"id": "isActive", "value": true}, {"id": "record", "value": true}]'
+                }
+                else{
+                    filter += '&filters=[{"id": "isActive", "value": true}]'
+                }
+            }
         }
+        const response = await this.http.get(PATH + filter);
+        console.log('Get all Streams: ' + response.statusText);
+        let streams =  [];
+        for(const element of response.data){
+            streams.push(new Stream(this.parent, element));
+        }
+        return streams;
+    }
+
+    async get(id){
+        if (!id) {
+            return Promise.reject(
+                new Error('ID of stream is required to get the stream')
+            );
+        }
+        const response = await this.http.get(PATH + '/' + id);
+        console.log('Get a Stream: ' + response.statusText);
+        return new Stream(this.parent, response.data);
     }
 }
 

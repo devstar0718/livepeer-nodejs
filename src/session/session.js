@@ -1,6 +1,6 @@
 /*!
  * Livepeer Stream
- * Copyright(c) 2021 Mux Inc.
+ * Copyright(c) 2021 Livepeer Inc.
  */
 
 const Base = require('../base');

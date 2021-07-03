@@ -1,6 +1,6 @@
 {
   "name": "livepeer-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Livepeer API wrapper for Node projects",
   "main": "src/livepeer.js",
   "scripts": {

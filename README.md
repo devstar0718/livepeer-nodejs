@@ -112,8 +112,18 @@ const stream = await livepeerObject.Stream.get(id);
 Turn on/off recording for streams, but not for session or historic stream object (representing a single live stream)
 
 ```javascript
-const result = await stream.record(true / false);
+const result = await stream.setRecord(true / false);
 ```
+
+#### - Retrieve a list of sessions
+
+Retrieve a list of sessions of a stream.
+
+```javascript
+const sessions = await stream.getSessions(true / false);
+```
+
+set param as true to get recorded session, otherwise false
 
 ### Session
 
@@ -136,17 +146,6 @@ Retrieve a list of sessions with the same User (owner of the api_key).
 ```javascript
 const sessions = await livepeerObject.Session.getAll();
 ```
-
-Retrieve a list of sessions within a stream.
-
-```javascript
-const sessions = await livepeerObject.Session.getAll(streamId, record);
-```
-
-| Parameter  | Description |
-| ------------- | ------------- |
-| streamId | ID of stream |
-| record | 1 to get recorded sessions, otherwise 0 |
 
 #### - Retrieve a session from session id
 

@@ -1,4 +1,4 @@
-# Livepeer Node
+# Livepeer NodeJS
 
 Livepeer API wrapper for Node projects, supporting for streams and sessions.
 
@@ -18,13 +18,13 @@ See the [Livepeer docs](https://livepeer.org/docs)
 ## Installation
 
 ```
-npm install livepeer-node --save
+npm install livepeer-nodejs --save
 ```
 
 or
 
 ```
-yarn add livepeer-node
+yarn add livepeer-nodejs
 ```
 
 ## Usage
@@ -32,10 +32,10 @@ yarn add livepeer-node
 To start, you will need to get API key for Livepeer. For more information on where to get an API key, visit https://livepeer.com/app/user/keys 
 
 
-Require the `livepeer-node` npm module and create a Livepeer instance. Your Livepeer instance will have some properties such as Stream and Session that allow you to access the Stream and Session APIs.
+Require the `livepeer-nodejs` npm module and create a Livepeer instance. Your Livepeer instance will have some properties such as Stream and Session that allow you to access the Stream and Session APIs.
 
 ```javascript
-const Livepeer = require('livepeer-node');
+const Livepeer = require('livepeer-nodejs');
 const livepeerObject = new Livepeer({api_key});
 ```
 
